@@ -1,4 +1,4 @@
-package com.krai29.newsapp.ui
+package com.krai29.newsapp.model
 
 data class Source(
     val id: Any,

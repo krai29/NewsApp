@@ -1,6 +1,6 @@
 package com.krai29.newsapp.api
 
-import com.krai29.newsapp.ui.NewsResponse
+import com.krai29.newsapp.model.NewsResponse
 import com.krai29.newsapp.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

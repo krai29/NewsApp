@@ -1,4 +1,6 @@
-package com.krai29.newsapp.ui
+package com.krai29.newsapp.model
+
+import com.krai29.newsapp.model.Article
 
 data class NewsResponse(
     val articles: List<Article>,
