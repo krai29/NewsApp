@@ -15,15 +15,15 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(itemView : View):RecyclerView.ViewHolder(itemView)
 
-    // AsyncListDiffer callback
     private val differCallback = object : DiffUtil.ItemCallback<Article>(){
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem.url==newItem.url
+           return oldItem.url == newItem.url
         }
 
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-            return oldItem==newItem
+            return oldItem == newItem
         }
+
     }
 
     val differ = AsyncListDiffer(this,differCallback)
@@ -46,7 +46,16 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             tvPublishedAt.text = article.publishedAt
             tvDescription.text = article.description
 
+            setOnArticleItemClickListener {
+                onArticleItemClickListener?.let { it(article) }
+            }
         }
+    }
+
+    private var onArticleItemClickListener : ((Article) -> Unit)? = null
+
+    fun setOnArticleItemClickListener(listener : (Article)-> Unit){
+        onArticleItemClickListener = listener
     }
 
 

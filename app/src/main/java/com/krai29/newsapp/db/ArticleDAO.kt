@@ -8,7 +8,7 @@ import com.krai29.newsapp.model.Article
 interface ArticleDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsert(article: Article) : String
+    suspend fun upsert(article: Article) : Long
 
     @Delete
     suspend fun deleteArticle(article: Article)
