@@ -32,7 +32,6 @@ class BreakingNewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
         setUpRecyclerView()
-        viewModel.getBreakingNews("in")
 
         viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
            when(response){
